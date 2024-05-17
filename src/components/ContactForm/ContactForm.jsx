@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 
+import styles from './ContactForm.module.css';
+
 const ContactForm = ({ contacts, addContact }) => {
   const [nameValue, setNameValue] = useState('');
   const [numberValue, setNumberValue] = useState('');
@@ -27,7 +29,7 @@ const ContactForm = ({ contacts, addContact }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.contactForm} onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Name</label>
         <input
@@ -50,7 +52,9 @@ const ContactForm = ({ contacts, addContact }) => {
           required
         />
       </div>
-      <button type="submit">Add contact</button>
+      <button className={styles.addBtn} type="submit">
+        Add contact
+      </button>
     </form>
   );
 };

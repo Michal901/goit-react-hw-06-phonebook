@@ -32,15 +32,3 @@ html {
   background-attachment: fixed;
   font-family: 'Cantarell' sans-serif;
 }
-#root {
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  padding: 20px 60px;
-  border-radius: 20px;
-  background-color: rgb(161, 228, 255);
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.393);
-}

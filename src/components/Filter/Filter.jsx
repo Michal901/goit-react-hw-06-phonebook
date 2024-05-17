@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 
+import styles from './Filter.module.css';
+
 const Filter = ({ filterValue, setFilterValue }) => {
   return (
-    <div>
+    <div className={styles.filter}>
       <div>
         <label htmlFor="filter">Find contact by name:</label>
       </div>
