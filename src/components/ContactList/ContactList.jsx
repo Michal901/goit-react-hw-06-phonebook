@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import styles from './ContactList.module.css';
+
 const Contact = ({ contacts, onDeleteContact }) => {
   return (
     <ul>

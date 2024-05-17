@@ -32,3 +32,13 @@ html {
   background-attachment: fixed;
   font-family: 'Cantarell' sans-serif;
 }
+
+.customBtn {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: 1px white solid;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
