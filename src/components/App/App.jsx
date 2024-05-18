@@ -8,6 +8,7 @@ import styles from './App.module.css';
 export const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
+  console.log(contacts);
 
   useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
@@ -17,14 +18,15 @@ export const App = () => {
   }, []);
 
   const addContact = newContact => {
-    setContacts(prevContacts => [...prevContacts, newContact]);
-    localStorage.setItem('contacts', JSON.stringify([...contacts, newContact]));
+    const updatedContacts = [...contacts, newContact];
+    setContacts(updatedContacts);
+    localStorage.setItem('contacts', JSON.stringify(updatedContacts));
   };
 
   const handleDeleteContact = id => {
-    setContacts(prevContacts =>
-      prevContacts.filter(contact => contact.id !== id)
-    );
+    const updatedContacts = contacts.filter(contact => contact.id !== id);
+    setContacts(updatedContacts);
+    localStorage.setItem('contacts', JSON.stringify(updatedContacts)); // Zapisywanie zaktualizowanej listy kontaktów
   };
 
   const filteredContacts = contacts.filter(contact =>
