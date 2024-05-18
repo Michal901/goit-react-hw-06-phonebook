@@ -18,13 +18,17 @@ export const App = () => {
   useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
     if (storedContacts) {
-      dispatch(addContact(JSON.parse(storedContacts)));
+      const parsedContacts = JSON.parse(storedContacts);
+      parsedContacts.forEach(contact => {
+        dispatch(addContact(contact));
+      });
     }
   }, [dispatch]);
 
   const handleAddContact = newContact => {
     dispatch(addContact(newContact));
-    localStorage.setItem('contacts', JSON.stringify([...contacts, newContact]));
+    const updatedContacts = [...contacts, newContact];
+    localStorage.setItem('contacts', JSON.stringify(updatedContacts));
   };
 
   const handleDeleteContact = id => {
@@ -44,7 +48,7 @@ export const App = () => {
   return (
     <div className={styles.phonebook}>
       <h1>Phonebook</h1>
-      <ContactForm addContact={handleAddContact} />
+      <ContactForm contacts={contacts} addContact={handleAddContact} />
       <h2>Contacts</h2>
       <Filter filterValue={filter} setFilterValue={handleFilterChange} />
       <ContactList

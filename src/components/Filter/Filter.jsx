@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import styles from './Filter.module.css';
 
 const Filter = ({ filterValue, setFilterValue }) => {
@@ -12,12 +11,13 @@ const Filter = ({ filterValue, setFilterValue }) => {
         type="text"
         id="filter"
         value={filterValue}
-        onChange={e => setFilterValue(e.target.value)}
+        onChange={setFilterValue}
         placeholder="Search..."
       />
     </div>
   );
 };
+
 Filter.propTypes = {
   filterValue: PropTypes.string.isRequired,
   setFilterValue: PropTypes.func.isRequired,
