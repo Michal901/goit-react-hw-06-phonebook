@@ -5,27 +5,27 @@ import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
 
 const ContactForm = ({ contacts, addContact }) => {
-  const [nameValue, setNameValue] = useState('');
-  const [numberValue, setNumberValue] = useState('');
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!nameValue.trim() || !numberValue.trim()) return;
+    if (!name.trim() || !number.trim()) return;
 
     const isDuplicate = contacts.some(
-      contact => contact.name.toLowerCase() === nameValue.toLowerCase()
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 
     if (isDuplicate) {
-      alert(`${nameValue} is already in contacts.`);
+      alert(`${name} is already in contacts.`);
       return;
     }
 
-    const newContact = { id: nanoid(), name: nameValue, number: numberValue };
+    const newContact = { id: nanoid(), name, number };
     addContact(newContact);
 
-    setNameValue('');
-    setNumberValue('');
+    setName('');
+    setNumber('');
   };
 
   return (
@@ -36,8 +36,8 @@ const ContactForm = ({ contacts, addContact }) => {
           type="text"
           name="name"
           id="name"
-          value={nameValue}
-          onChange={e => setNameValue(e.target.value)}
+          value={name}
+          onChange={e => setName(e.target.value)}
           required
         />
       </div>
@@ -47,8 +47,8 @@ const ContactForm = ({ contacts, addContact }) => {
           type="tel"
           name="number"
           id="number"
-          value={numberValue}
-          onChange={e => setNumberValue(e.target.value)}
+          value={number}
+          onChange={e => setNumber(e.target.value)}
           required
         />
       </div>
@@ -58,8 +58,10 @@ const ContactForm = ({ contacts, addContact }) => {
     </form>
   );
 };
+
 ContactForm.propTypes = {
   contacts: PropTypes.array.isRequired,
   addContact: PropTypes.func.isRequired,
 };
+
 export default ContactForm;
