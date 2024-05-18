@@ -8,7 +8,6 @@ import styles from './App.module.css';
 export const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
-  console.log(contacts);
 
   useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
@@ -26,7 +25,7 @@ export const App = () => {
   const handleDeleteContact = id => {
     const updatedContacts = contacts.filter(contact => contact.id !== id);
     setContacts(updatedContacts);
-    localStorage.setItem('contacts', JSON.stringify(updatedContacts)); // Zapisywanie zaktualizowanej listy kontaktów
+    localStorage.setItem('contacts', JSON.stringify(updatedContacts));
   };
 
   const filteredContacts = contacts.filter(contact =>

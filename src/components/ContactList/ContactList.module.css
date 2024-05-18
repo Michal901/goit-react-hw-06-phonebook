@@ -8,17 +8,6 @@
   border: 1px solid white;
   background: blur(10px);
 }
-.contactList li::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: -1;
-}
 
 .customBtn {
   width: 100%;
