@@ -12,6 +12,7 @@ import styles from './App.module.css';
 
 export const App = () => {
   const dispatch = useDispatch();
+  qwe;
   const contacts = useSelector(state => state.contacts.contacts);
   const filter = useSelector(state => state.contacts.filter);
 
